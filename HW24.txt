@@ -1,0 +1,30 @@
+1)
+public interface NumberGroup {
+	boolean contains(int a);
+
+}
+
+2)
+public class Range implements IntegerSequence{
+  private int start,end,current;
+  public Range(int start, int end){
+  	this.start = start;
+  	this.end = end;
+  	current = start;
+  }
+
+  public boolean contains(int a) {
+  	return (a>=start && a<=end);
+  }
+}
+
+
+3)
+public boolean contains(int a) {
+	for (NumberGroup b : groupList) {
+		if (group.contains(a)) {
+			return true;
+		}
+	}
+	return false;
+}
