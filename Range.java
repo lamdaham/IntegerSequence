@@ -5,29 +5,32 @@ public class Range implements IntegerSequence{
 
   //@param start : the starting value (inclusive) which must be <= end.
   //@param end : the ending value which is also inclusive.
-  public Range(int start1,  int end1){
-  	start=start1-1;
-  	end = end1;
-  	current = start;
-  }
+  public Range(int start,  int end){
+    if (start > end) {
+      throw new IllegalArgumentException("Start value cannot be greater than the end value");
+    }
+    this.start = start;
+    this.end = end;
+    this.current = start;
+}
 
   public void reset(){
   	current = start;
   }
   public int length(){
-  	return (Math.abs(end-start));
+  	return end-start+1;
   }
 
 
   public boolean hasNext(){
-  	return ((current<end));
+  	return ((current<=end));
   }
 
   //@throws NoSuchElementException when hasNext() is false.
   public int next(){
   	if (hasNext()) {
   		current++;
-  		return current;
+  		return current-1;
   	} else {
   		throw new NoSuchElementException();
   	}
