@@ -5,9 +5,10 @@ public class ArraySequence implements IntegerSequence{
 	int[] data;
 
 	public ArraySequence(int[] other) {
-		data = new int[other.length];
+		this.currentIndex = 0;
+		this.data = new int[other.length];
 		for (int i = 0; i<data.length; i++) {
-			data[i] = other[i];
+			this.data[i] = other[i];
 		}
 	}
 
@@ -17,18 +18,23 @@ public class ArraySequence implements IntegerSequence{
 
 
 	public boolean hasNext() {
-		
+		return currentIndex<=(length()-1);
 	}
 
 	public int next() {
-
+		if (hasNext()){
+			currentIndex++;
+			return data[currentIndex-1];
+		} else {
+			throw new NoSuchElementException();
+		}
 	}
 
 	public int length() {
-		
+		return data.length;
 	}
 
 	public void reset() {
-		
+		currentIndex = 0;
 	}
 }
