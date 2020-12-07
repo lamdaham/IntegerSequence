@@ -14,4 +14,21 @@ public class ArraySequence implements IntegerSequence{
 	public ArraySequence(IntegerSequence otherseq) {
 
 	}
+
+
+	public boolean hasNext() {
+		
+	}
+
+	public int next() {
+
+	}
+
+	public int length() {
+		
+	}
+
+	public void reset() {
+		
+	}
 }
