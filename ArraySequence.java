@@ -17,7 +17,7 @@ public class ArraySequence implements IntegerSequence{
 		otherseq.reset();
 		this.currentIndex = 0;
 		this.data = new int[otherseq.length()];
-		while (hasNext()) {
+		while (otherseq.hasNext()) {
 			this.data[this.currentIndex] = otherseq.next();
 			this.currentIndex++;
 		}
